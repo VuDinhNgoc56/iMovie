@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary:#ff3700;
+}
+body{
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+}
+/* Cấu trúc Header */
+/* HEADER */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 10;
+    background-color: transparent; /* Thêm nền để thấy rõ */
+}
+
+.logo {
+    font-size: 40px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+}
+
+.nav li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.nav li:hover a {
+    color: white;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 999;
+    width: 450px;
+    gap: 20px;
+    display: none; /* Ẩn mặc định */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex; /* Chỉ hiện khi hover */
+}
+
+.dropdown-menu .column {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.dropdown-menu .column li a {
+    display: block;
+    padding: 8px 10px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.dropdown-menu1 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 999;
+    width: 150px;
+    gap: 20px;
+    display: none; /* Ẩn mặc định */
+}
+
+.dropdown1:hover .dropdown-menu1 {
+    display: flex; /* Chỉ hiện khi hover */
+}
+
+.dropdown-menu1 .column {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.dropdown-menu1 .column li a {
+    display: block;
+    padding: 8px 10px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* SEARCH BOX */
+.search {
+    position: relative;
+    width: 300px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid cyan;
+}
+
+.search i {
+    color: white;
+    margin-right: 10px;
+}
+
+.search input {
+    flex: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+}
+
+.search input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* ❌ Xoá hoặc giảm để ảnh không bị đẩy xuống */
+    padding: 20px 50px 0; /* ✅ Giảm padding top, giữ padding ngang nếu cần */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* ✅ Đảm bảo nội dung canh trên cùng */
+    background: linear-gradient(90deg, #593E67, #B85B56);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.carousel {
+    position: relative;
+    height: 500px;
+    perspective: 1500;
+}
+
+.movie-card {
+  position: relative;
+  width: 250px;
+  margin: 10px;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease; /* thêm hiệu ứng mượt */
+}
+
+.movie-card:hover {
+  transform: scale(1.15); /* phóng to nhẹ khi di chuột */
+  z-index: 10; /* đảm bảo nổi lên trên khi phóng to */
+}
+.content {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Nhãn góc trên */
+.label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  color: white;
+  z-index: 2;
+}
+
+.label.red {
+  background-color: red;
+}
+
+.label.yellow {
+  background-color: gold;
+  color: black;
+}
+
+/* Nền đen chứa tiêu đề ở dưới */
+.title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7); /* màu đen mờ */
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  margin: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.STT {
+  position: fixed;      /* cố định vị trí so với viewport */
+  bottom: 0;            /* cách dưới cùng 0px */
+  left: 0;              /* canh trái 0px */
+  width: 100%;          /* chiếm toàn bộ chiều ngang */
+  background: rgba(255, 255, 255, 0.3); /* nền mờ, bạn có thể chỉnh hoặc bỏ */
+  padding: 10px 0;      /* khoảng cách trên dưới */
+  display: flex;
+  justify-content: center;  /* căn giữa nội dung bên trong */
+  z-index: 9999;        /* ưu tiên hiển thị trên các phần khác */
+}
+
+.STT button {
+  width: 30px;
+  height: 35px;
+  margin: 0 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+  background: transparent;
+  border: 2px solid #3498db;
+}
+.STT button:hover {
+  background-color: rgba(255, 255, 255, 0.8);  /* màu nền khi hover */
+  color:var(--primary);             /* màu chữ khi hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* hiệu ứng mượt */
+}
+.footer {
+background: linear-gradient(
+  rgba(0, 25, 73, 0.8),  /* màu đầu, alpha 0.8 làm sáng hơn */
+  rgba(149, 106, 214, 0.8) /* màu cuối, alpha 0.8 */
+);
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 180px;
+  min-width: 150px;
+}
+
+.footer-section h2 {
+  font-size: 20px;
+  color: orange;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-section h2 span {
+  color: #fff;
+}
+
+.logo-img {
+  width: 100px;
+  height:100%;
+}
+
+.footer-section h3 {
+  color: orange;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-section ul li:hover {
+  color: orange;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+}
+
+
+

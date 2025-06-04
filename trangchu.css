@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary:#ff3700;
+}
+body{
+    
+        background-image: url('images/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    
+    
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+}
+/* Cấu trúc Header */
+/* HEADER */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 10;
+    background-color: transparent; /* Thêm nền để thấy rõ */
+}
+
+.logo {
+    font-size: 40px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+}
+
+.nav li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.nav li:hover a {
+    color: white;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 999;
+    width: 450px;
+    gap: 20px;
+    display: none; /* Ẩn mặc định */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex; /* Chỉ hiện khi hover */
+}
+
+.dropdown-menu .column {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.dropdown-menu .column li a {
+    display: block;
+    padding: 8px 10px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.dropdown-menu1 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 999;
+    width: 150px;
+    gap: 20px;
+    display: none; /* Ẩn mặc định */
+}
+
+.dropdown1:hover .dropdown-menu1 {
+    display: flex; /* Chỉ hiện khi hover */
+}
+
+.dropdown-menu1 .column {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.dropdown-menu1 .column li a {
+    display: block;
+    padding: 8px 10px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* SEARCH BOX */
+.search {
+    position: relative;
+    width: 300px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid cyan;
+}
+
+.search i {
+    color: white;
+    margin-right: 10px;
+}
+
+.search input {
+    flex: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+}
+
+.search input::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: url(poster/totoro.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+/*.banner {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('poster/totoro-doc.jpg') no-repeat center center/cover;
+    transition: background-image 0.5s ease-in-out;
+}*/
+
+
+
+.banner::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.content{
+    position: relative;
+    max-width: 1200px;
+    display: none;
+    visibility: hidden;
+    transform: scale(0);
+    transition: 0.5s;
+}
+.content.active{
+    display: block;
+    visibility: visible;
+    transform: scale(1);
+    transition: 0.5s;
+}
+.movie-title{
+    max-width: 250px;
+}
+.banner .content h4{
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    font-size: 30px;
+}
+.banner .content h4 span {
+    padding: 0 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+.banner .content h4 span:first-child{
+    padding-left: 0;
+}
+.banner .content h4 span:last-child{
+    border-right: none;
+}
+.banner .content h4 span i {
+    background:  var(--primary);
+    color: #ffff;
+    padding: 0 8px;
+    display: inline-block;
+    border-radius: 2px;
+}
+.banner .content p {
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.5em;
+    color: #ffff;
+    margin: 10px 0 20px;
+}
+.banner .content .button{
+    position: relative;
+}
+.banner .content .button a {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    background: var(--primary);
+    color: #ffff;
+    padding: 6px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.banner .content .button a:nth-child(2){
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.banner .content .button a:hover:nth-child(2){
+    background: var(--primary);
+}
+.banner .carousel-box {
+    position: relative;
+    min-width: 950px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+}
+.carousel {
+    position: relative;
+    height: 500px;
+    perspective: 1500;
+}
+.carousel .carousel-item {
+    width: 250px;
+    cursor: pointer;
+}
+.carousel .carousel-item img {
+    max-width: 250px;
+    border-radius: 10px;
+    transform: translateX(8px) translateY(-100px);
+    object-fit: cover;
+    object-position: center;
+}
+.play {
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    cursor: pointer !important;
+    transition: 0.3s;
+}
+.play i {
+    margin-right: 10px;
+    font-size: 40px;
+    cursor:  pointer !important;
+}
+.play:hover{
+    color: var(--primary);
+}
+.sci{
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.sci a {
+    color: #ffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 25px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.sci a:hover{
+    color: var(--primary);
+}
+.trailer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.trailer.active{
+    visibility: visible;
+    opacity: 1;
+}
+.trailer video{
+    max-width: 900px;
+    outline: none;
+}
+.close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    filter: invert(1);
+    max-width: 30px;
+}
+
+body.tank-background {
+   
+    background-image: url('background/tank-background.jpg');
+}
