@@ -30,128 +30,228 @@ header {
     align-items: center;
     padding: 30px 100px;
     z-index: 10;
-    background-color: transparent; /* Thêm nền để thấy rõ */
+}
+@media (max-width: 768px) {
+    header {
+        padding: 10px 10px;
+        flex-wrap: wrap; /* nếu các item bị chật */
+    }
 }
 
+/* Mobile: thu gọn tối đa */
+@media (max-width: 480px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: row; /* xếp dọc các item nếu cần */
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
 .logo {
     font-size: 40px;
     color: #fff;
-    font-weight: bold;
-    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+@media (max-width: 768px) {
+    .logo {
+        font-size: 20px;
+        position: relative;
+        margin-top:-3px; /* nhỏ hơn */
+    }
 }
 
-.nav {
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px; /* rất nhỏ trên điện thoại */
+    }
+}
+
+.nav{
     display: flex;
-    list-style: none;
 }
-
 .nav li {
-    position: relative;
+    list-style: none;
     margin: 0 10px;
 }
-
-.nav li a {
+.nav li a{
     color: #fff;
     text-decoration: none;
-    padding: 10px;
-    display: block;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+nav li:hover a {
+    color: var(--primary);
+}
+@media (max-width: 768px) {
+    .nav {
+        flex-wrap: nowrap; /* KHÔNG cho xuống dòng */
+        overflow-x: auto; /* nếu quá dài có thể cuộn ngang */
+    }
+
+    .nav li a {
+        font-size: 0; /* Ẩn chữ */
+    }
+
+    .nav li a i {
+        font-size: 18px; /* Thu nhỏ icon */
+    }
+
+    .nav li {
+        margin: 0 4px; /* giảm khoảng cách */
+        white-space: nowrap; /* ngăn xuống dòng trong mỗi li */
+    }
 }
 
-.nav li:hover a {
-    color: white;
-}
+
+
 .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: rgba(255, 255, 255, 0.3);
-    padding: 10px;
-    border-radius: 4px;
-    z-index: 999;
-    width: 450px;
-    gap: 20px;
     display: none; /* Ẩn mặc định */
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    min-width: 330px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 0px;
+    gap: px;
 }
 
+/* Cấu hình khi hover */
 .dropdown:hover .dropdown-menu {
-    display: flex; /* Chỉ hiện khi hover */
+    display: flex; /* Hiện menu + chia cột */
 }
 
-.dropdown-menu .column {
-    list-style: none;
+.dropdown-menu ul {
+    list-style-type: none;
     padding: 0;
     margin: 0;
-    flex: 1;
+    min-width: 140px;
 }
 
-.dropdown-menu .column li a {
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu a {
+    color: #000;
+    padding: 2px 12px;
     display: block;
-    padding: 8px 10px;
-    color: #fff;
-    text-decoration: none;
-    white-space: nowrap;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+/* Hiện dropdown khi hover vào .dropdown */
+.dropdown:hover .dropdown-menu {
+    display: flex; /* đảm bảo flex vẫn hiển thị khi hover */
 }
 .dropdown-menu1 {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: rgba(255, 255, 255, 0.3);
-    padding: 10px;
-    border-radius: 4px;
-    z-index: 999;
-    width: 150px;
-    gap: 20px;
     display: none; /* Ẩn mặc định */
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    min-width: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 0px;
+    gap: px;
 }
 
+/* Cấu hình khi hover */
 .dropdown1:hover .dropdown-menu1 {
-    display: flex; /* Chỉ hiện khi hover */
+    display: flex; /* Hiện menu + chia cột */
 }
 
-.dropdown-menu1 .column {
-    list-style: none;
+.dropdown-menu1 ul {
+    list-style-type: none;
     padding: 0;
     margin: 0;
-    flex: 1;
+    min-width: 140px;
 }
 
-.dropdown-menu1 .column li a {
+.dropdown-menu1 li {
+    margin: 5px 0;
+}
+
+.dropdown-menu1 a {
+    color: #000;
+    padding: 2px 12px;
     display: block;
-    padding: 8px 10px;
-    color: #fff;
-    text-decoration: none;
-    white-space: nowrap;
+    transition: background-color 0.3s;
+    text-align: center;
 }
 
+.dropdown-menu1 a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+/* Hiện dropdown khi hover vào .dropdown */
+.dropdown1:hover .dropdown-menu1 {
+    display: flex; /* đảm bảo flex vẫn hiển thị khi hover */
+}
 /* SEARCH BOX */
 .search {
     position: relative;
     width: 300px;
     height: 40px;
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid cyan;
 }
-
-.search i {
-    color: white;
-    margin-right: 10px;
-}
-
-.search input {
-    flex: 1;
+.search input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
     height: 100%;
+    color: #fff;
     background: transparent;
-    border: none;
+    border: 1 solid rgba(255, 255, 255, 0.5);
     outline: none;
-    color: white;
-    font-size: 16px;
+    border-radius: 4px;
+    padding:0 10px 0 45px !important;
+    backdrop-filter: blur(10px);
+}
+.search input::placeholder{
+    color: #fff;
+}
+.search i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    padding-right: 10px;
+    color: #fff;
+    border-right: 1px solid #fff;
+}
+@media (max-width: 768px) {
+    .search {
+        width: 50px; /* thu nhỏ container chỉ đủ chứa icon */
+    }
+
+    .search input {
+        width: 0; /* ẩn input đi */
+        padding: 0 !important; /* bỏ padding */
+        border: none;
+        opacity: 0; /* ẩn input */
+        pointer-events: none; /* không cho tương tác */
+    }
+
+    .search i {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-right: none;
+        padding-right: 0;
+        cursor: pointer;
+        margin-top: -9px; /* có thể thêm để biết là nút */
+    }
 }
 
-.search input::placeholder {
-    color: white;
-    opacity: 0.7;
-}
 .banner {
     position: relative;
     width: 100%;
@@ -235,6 +335,51 @@ header {
     color: #ffff;
     margin: 10px 0 20px;
 }
+@media (max-width: 768px) {
+    .content h4,
+    .content p {
+        display: none !important;
+    }
+
+    .content .movie-title {
+        display: block;
+        margin-top: 30px;
+        margin-left: 10%;  /* dịch sang trái */
+        margin-right: auto;
+        width: 90%;
+        height: auto;
+    }
+      .banner .content .button {
+         display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ chỗ */
+        gap: 10px; /* Khoảng cách giữa các nút */
+        margin-top: 20px; /* Đẩy xuống dưới */
+     }
+
+    .banner .content .button a {
+        margin-right: 0; /* Xóa margin phải để tránh đẩy nút cuối */
+        padding: 8px 16px;
+        font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+    .content h4,
+    .content p {
+        display: none !important;
+    }
+
+    .content .movie-title {
+        display: block;
+        margin-top: 200px;
+        margin-left: -12.5%;   /* dịch sang trái ít hơn */
+        margin-right: auto;
+        width: 150%;
+        height: auto;
+    }
+}
 .banner .content .button{
     position: relative;
 }
@@ -287,6 +432,46 @@ header {
     object-fit: cover;
     object-position: center;
 }
+@media (max-width: 768px) {
+    .banner .carousel-box {
+        min-width: 100%;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carousel {
+        height: 250px;
+        perspective: none;
+        margin-top: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .carousel .carousel-item {
+        display: flex;              /* ✅ thêm để ảnh bên trong căn giữa */
+        justify-content: center;    /* ✅ căn giữa theo chiều ngang */
+        align-items: center;        /* ✅ căn giữa theo chiều dọc nếu cần */
+        width: 50%;               /* đảm bảo không giới hạn */
+    }
+
+    .carousel .carousel-item img {
+        transform: none;            /* ✅ bỏ transform */
+        max-width: 160%;             /* bạn có thể chỉnh nhỏ lại nếu muốn */
+        height: auto;
+        display: block;
+        margin: 0 auto;        /* ✅ căn giữa ảnh */
+    }
+}
 .play {
     position: absolute;
     bottom: 50px;
@@ -308,9 +493,34 @@ header {
     font-size: 40px;
     cursor:  pointer !important;
 }
+
 .play:hover{
     color: var(--primary);
 }
+@media (max-width: 768px) {
+  .play {
+    left: 20px;
+    bottom: 20px;
+    font-size: 1em;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  .play i {
+    font-size: 24px;
+    margin-right: 8px;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  /* Hover khi di chuột vào */
+  .play:hover,
+  .play:hover i {
+    color: var(--primary);
+  }
+}
+
+
 .sci{
     position: absolute;
     bottom: 50px;
@@ -333,6 +543,18 @@ header {
 .sci a:hover{
     color: var(--primary);
 }
+@media (max-width: 768px) {
+  .sci {
+    bottom: 20px; /* Dịch xuống thấp hơn (tăng khoảng cách với nội dung) */
+    right: 20px; /* Có thể chỉnh lại nếu cần cân đối */
+    gap: 15px;   /* Giảm khoảng cách giữa các icon */
+  }
+
+  .sci a {
+    font-size: 18px; /* Giảm kích thước chữ/icon */
+  }
+}
+
 .trailer {
     position: fixed;
     top: 50%;
