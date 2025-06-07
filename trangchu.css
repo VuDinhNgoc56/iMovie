@@ -88,7 +88,7 @@ nav li:hover a {
 @media (max-width: 768px) {
     .nav {
         flex-wrap: nowrap; /* KHÔNG cho xuống dòng */
-        overflow-x: auto; /* nếu quá dài có thể cuộn ngang */
+        overflow-x: auto;  /* nếu quá dài có thể cuộn ngang */
     }
 
     .nav li a {
@@ -96,14 +96,17 @@ nav li:hover a {
     }
 
     .nav li a i {
-        font-size: 18px; /* Thu nhỏ icon */
+        font-size: 18px;      /* Thu nhỏ icon */
+        margin-left: -3px;    /* ✅ Đẩy icon sang trái nhẹ */
+        /* hoặc dùng: transform: translateX(-2px); */
     }
 
     .nav li {
-        margin: 0 4px; /* giảm khoảng cách */
+        margin: 0 4px;        /* giảm khoảng cách */
         white-space: nowrap; /* ngăn xuống dòng trong mỗi li */
     }
 }
+
 
 
 
@@ -448,7 +451,7 @@ nav li:hover a {
     /* ❌ Xóa thuộc tính gây lệch hoặc thu hẹp chiều ngang */
     margin-left: 0;
     right: 205px;
-    margin-right: -300px;
+    margin-right: -290px;
 
     box-sizing: border-box;
     display: flex;
