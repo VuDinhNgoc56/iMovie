@@ -433,45 +433,55 @@ nav li:hover a {
     object-position: center;
 }
 @media (max-width: 768px) {
-    .banner .carousel-box {
-        min-width: 100%;
-        flex-direction: column;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .banner .carousel-box {
+    width: 320vw;                    /* ✅ Chiếm toàn bộ chiều rộng màn hình */
+    max-width: 200%;                 /* ✅ Không giới hạn chiều rộng */
+    min-width: unset;                /* ✅ Xoá giới hạn min-width 950px gốc */
+    min-height: 250px;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 8px;
+    position: relative;
+    margin-top: -290px;
 
-    .carousel {
-        height: 250px;
-        perspective: none;
-        margin-top: 0px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-    }
+    /* ❌ Xóa thuộc tính gây lệch hoặc thu hẹp chiều ngang */
+    margin-left: 0;
+    right: 205px;
+    margin-right: -300px;
 
-    .carousel .carousel-item {
-        display: flex;              /* ✅ thêm để ảnh bên trong căn giữa */
-        justify-content: center;    /* ✅ căn giữa theo chiều ngang */
-        align-items: center;        /* ✅ căn giữa theo chiều dọc nếu cần */
-        width: 50%;               /* đảm bảo không giới hạn */
-    }
+    box-sizing: border-box;
+    display: flex;
+  }
 
-    .carousel .carousel-item img {
-        transform: none;            /* ✅ bỏ transform */
-        max-width: 160%;             /* bạn có thể chỉnh nhỏ lại nếu muốn */
-        height: auto;
-        display: block;
-        margin: 0 auto;        /* ✅ căn giữa ảnh */
-    }
+.carousel {
+  height: 200px;
+  perspective: 1000px;
+  padding: 10px 0;
+  width: 90%;         /* hoặc width cố định như 950px, hoặc max-width */
+  max-width: 950px;
+  margin: 0 auto;     /* căn giữa theo chiều ngang */
+  display: flex;      /* nếu cần canh nội dung trong */
+  justify-content: center;  /* căn giữa nội dung bên trong */
 }
+
+
+.carousel .carousel-item {
+  width: 180px;
+  margin: 0 8px;
+}
+
+.carousel .carousel-item img {
+  width: 100%;            /* Chiếm hết chiều ngang của item */
+  height: 200px;          /* Đặt chiều cao cố định bạn muốn */
+  object-fit: cover;      /* Giữ tỉ lệ, ảnh không bị méo */
+  border-radius: 10px;
+  transform: translateX(0) translateY(0);
+}
+
+}
+
+
 .play {
     position: absolute;
     bottom: 50px;
