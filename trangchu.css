@@ -106,10 +106,6 @@ nav li:hover a {
         white-space: nowrap; /* ngăn xuống dòng trong mỗi li */
     }
 }
-
-
-
-
 .dropdown-menu {
     display: none; /* Ẩn mặc định */
     position: absolute;
@@ -117,7 +113,7 @@ nav li:hover a {
     min-width: 330px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 0px;
     gap: px;
 }
@@ -139,7 +135,7 @@ nav li:hover a {
 }
 
 .dropdown-menu a {
-    color: #000;
+    color: #fff;
     padding: 2px 12px;
     display: block;
     transition: background-color 0.3s;
@@ -155,6 +151,53 @@ nav li:hover a {
 .dropdown:hover .dropdown-menu {
     display: flex; /* đảm bảo flex vẫn hiển thị khi hover */
 }
+@media (max-width: 768px) {
+    .dropdown-menu {
+        min-width: 150px;
+        height: auto; /* Auto height thay vì cố định */
+        flex-direction: column; /* Xếp dọc các cột */
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.6); /* Tối hơn để dễ đọc */
+        border-radius: 10px;
+        padding: 10px;
+        gap: 6px;
+        position: absolute;
+        z-index: 9999;
+    }
+
+    .dropdown-menu ul.column {
+        max-width: 100%; /* Mỗi cột chiếm toàn bộ chiều ngang */
+        padding: 0;/* Thêm khoảng cách giữa các cột */
+        list-style: none;
+    }
+
+    .dropdown-menu li {
+        margin: 4px 0;
+    }
+
+    .dropdown-menu a {
+        font-size: 10px !important;
+        padding: 5px;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        color: #fff !important;
+        text-decoration: none;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.1); /* Nền nhẹ để dễ nhấn */
+        transition: background-color 0.2s;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+}
+
+
 .dropdown-menu1 {
     display: none; /* Ẩn mặc định */
     position: absolute;
@@ -200,6 +243,52 @@ nav li:hover a {
 .dropdown1:hover .dropdown-menu1 {
     display: flex; /* đảm bảo flex vẫn hiển thị khi hover */
 }
+@media (max-width: 768px) {
+    .dropdown-menu1 {
+        position: absolute; /* Cần để dùng left hoặc transform *//* Đặt sát lề trái */
+        transform: translateX(-50px); /* Dịch qua trái 50px */
+        min-width: 100px;
+        height: auto;
+        flex-direction: column;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        padding: 10px;
+        gap: 6px;
+        z-index: 9999;
+    }
+
+    .dropdown-menu1 ul.column {
+        max-width: 100%;
+        padding: 0;
+        list-style: none;
+    }
+
+    .dropdown-menu1 li {
+        margin: 4px 0;
+    }
+
+    .dropdown-menu1 a {
+        font-size: 10px !important;
+        padding: 5px;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        color: #fff !important;
+        text-decoration: none;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: background-color 0.2s;
+    }
+
+    .dropdown-menu1 a:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+}
+
+
 /* SEARCH BOX */
 .search {
     position: relative;
@@ -365,6 +454,12 @@ nav li:hover a {
         margin-right: 0; /* Xóa margin phải để tránh đẩy nút cuối */
         padding: 8px 16px;
         font-size: 14px;
+        white-space: nowrap;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s ease;
   }
 }
 

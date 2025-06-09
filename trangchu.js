@@ -64,3 +64,8 @@ if (document.getElementById('header-placeholder')) {
             console.error('Lỗi khi tải header:', error);
         });
 }
+document.querySelectorAll('.dropdown').forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('open');
+    });
+});
